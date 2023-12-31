@@ -1,0 +1,29 @@
+Step 1 --> create a workspace and Installation of python package in vs code or cmd
+
+Step 2  -->  Installation of necessary extensions in vs code as it suggests automatically install tesseract package from git as well as multilang package from git
+
+Step 3--> Create a file name sample.py and type the necessary code
+
+from PIL import Image
+import pytesseract
+import os
+
+# Set the path to the Tesseract executable
+pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
+
+# Set the TESSDATA_PREFIX environment variable
+os.environ['TESSDATA_PREFIX'] = r'C:\Program Files\Tesseract-OCR\tessdatanew\tessdatamain'
+
+# Open the image using Pillow (PIL Fork)
+image_path = r'C:\Users\Methuna\Desktop\python\hindi_image.jpg'
+image = Image.open(image_path)
+
+# Use pytesseract to extract Hindi text from the image
+text = pytesseract.image_to_string(image, lang='hin')
+
+# Print the extracted text
+print(text)
+
+Step 4---> create a another file named image.png or according to the image type
+
+Step 5--> To run the code , in the terminal type "python sample.py" as sample.py is the file name
